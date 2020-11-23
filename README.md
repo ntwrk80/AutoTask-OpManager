@@ -1,10 +1,9 @@
 ## Note: New version is a work in progress (fresh start with more customization)
-# ATSlack-Notify
-ATSlack Ticket Notifications (Sends New Ticket Notifications to Slack).
-I have limited knowledge of writing these things, this is just about as far as I can take it. Hopefully someone else can add fancy stuff like slash commands! I am working on a few improvements, including a /ataccept command to accept the ticket. However I also have to work so I don't know when that will be ready :).
-##Requirements
-You'll need a server (Linux is ideal) with PHP and PHP-SOAP client and MySQL/MariaDB. Many shared web hosts offer this. When I was building and testing it, I was doing so on PHP7 on a Plesk / CentOS web server. *SSL is also required. The task will FAIL if you do not place this on an SSL host* Here is an example of that the notification looks like: https://i.imgur.com/9rLqz0N.png
+# AutoTask-OpManager
+This is a fork of the code from ATSlack-Notify to allow an interface between Autotask PSA and ManageEngine's OpManager software. I am not a developer by trade so YMMV.
 
+
+Need to change stuff below here. :)
 ####Usage
 * ticketSlack.php & ticketSlack2.php: ticketSlack.php is legacy. ticketSlack2.php is used by AT Extensions to trigger an alert to a specefic room when a new ticket is opened.
 * ticketReply.php: COMING SOON. Will alert the ticket owner via Slack when the customer places a reply in the ticket.
