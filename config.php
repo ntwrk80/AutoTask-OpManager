@@ -17,11 +17,12 @@
 //CHMOD this to 0600
 
 //Global Variables
-$wsdl = "https://webservices5.autotask.net/ATServices/1.5/atws.wsdl"; #WEB SERVICES ENDPOINT THE NUMBER MATCHES THE REALM NUMBER#
+$wsdl = "https://webservices15.autotask.net/ATServices/1.6/atws.wsdl"; #WEB SERVICES ENDPOINT THE NUMBER MATCHES THE REALM NUMBER#
 $slacknotificationsendpoint = "https://hooks.slack.com/services/WHOLE BUNCHA DATA HERE"; #YOUR SLACK ENDPOINT#
-$atzone = "ww5"; #your autotask realm get this by logging in and checking your url https://ww5.autotask.net (between :// and .autotask.net is the realm)#
+$atzone = "ww15"; #your autotask realm get this by logging in and checking your url https://ww5.autotask.net (between :// and .autotask.net is the realm)#
 $username = ""; #autotask api username
 $password = ""; #autotask api password
+$internalintegrationname = ""; #autotask internal integration name
 $extensiontoken = ""; #This String is used for all ticket extensions (append as ?s=THISTOKEN)
 
 //Database Configuration (We use a database to map Slack users to Autotask Resources)

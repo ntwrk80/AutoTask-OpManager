@@ -5,18 +5,18 @@ $ticketNumber = $_POST['number'];
 $ticketId = $_POST['id'];
 require_once __DIR__ . '/functions.php';
 
-function GetTicketInfo_New($TheticketNumber, $wsdl, $username, $password) {
+function GetTicketInfo_New($TheticketNumber, $wsdl, $username, $password, $integration ) {
 	$authWsdl = $wsdl;
 	$opts = array('trace' => 1);
 	$client = new ATWS\Client($authWsdl, $opts);
 	$zoneInfo = $client->getZoneInfo($username);
 	$authOpts = array(
 		'login' => $username,
-		'password' => $password,
+        'password' => $password,
 		'trace' => 1,   // Allows us to debug by getting the XML requests sent
 	);
 	$wsdl = str_replace('.asmx', '.wsdl', $zoneInfo->getZoneInfoResult->URL);
-	$client = new ATWS\Client($wsdl, $authOpts);
+	$client = new ATWS\Client($wsdl, $authOpts, $integration);
 	//Ticket Object Query (the root of all things)
 	$ticketquery = new ATWS\AutotaskObjects\Query('Ticket');
 	$ticketNumberField = new ATWS\AutotaskObjects\QueryField('ticketnumber');
@@ -93,7 +93,7 @@ if(!($_GET['s'] == $extensiontoken)) {
 }
 # Now that we've checked security, we'll do some real work
 //Fire GetTicketInfo to get our array of data
-$ticketData = GetTicketInfo_New($ticketNumber,$wsdl,$username,$password);
+$ticketData = GetTicketInfo_New($ticketNumber,$wsdl,$username,$password, $internalintegrationname);
 //Unwrap the array
 
 $ticketTitle = $ticketData["TicketTitle"];
